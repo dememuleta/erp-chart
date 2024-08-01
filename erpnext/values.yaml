@@ -231,6 +231,11 @@ persistence:
     # existingClaim: ""
     size: 8Gi
     # storageClass: "nfs"
+  apps:
+    enabled: true
+    # existingClaim: ""
+    size: 8Gi
+    # storageClass: "nfs"
   logs:
     # Container based log search and analytics stack recommended
     enabled: false

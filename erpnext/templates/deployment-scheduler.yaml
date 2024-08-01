@@ -78,12 +78,12 @@ spec:
           emptyDir: {}
           {{- end }}
         - name: apps-dir
-          {{- if .Values.persistence.worker.enabled }}
+          {{- if .Values.persistence.apps.enabled }}
           persistentVolumeClaim:
-            {{- if .Values.persistence.worker.existingClaim }}
-            claimName: {{ .Values.persistence.worker.existingClaim }}
+            {{- if .Values.persistence.apps.existingClaim }}
+            claimName: {{ .Values.persistence.apps.existingClaim }}
             {{- else }}
-            claimName: {{ template "erpnext.fullname" . }}
+            claimName: {{ template "erpnext.fullname" . }}-apps
             {{- end }}
             readOnly: false
           {{- else }}

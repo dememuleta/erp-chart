@@ -1,0 +1,2 @@
+helm package erpnext
+helm repo index . --url https://dememuleta.github.io/erp-chart
