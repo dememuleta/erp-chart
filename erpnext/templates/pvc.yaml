@@ -16,3 +16,22 @@ spec:
       storage: {{ .Values.persistence.worker.size | quote }}
   storageClassName: {{ required "A valid persistence.worker.storageClass entry required!" .Values.persistence.worker.storageClass }}
 {{- end }}
+---
+{{- if and .Values.persistence.apps.enabled (not .Values.persistence.apps.existingClaim) }}
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  labels:
+    app: {{ template "erpnext.name" . }}
+    chart: {{ template "erpnext.chart" . }}
+    heritage: {{ .Release.Service }}
+    release: {{ .Release.Name }}
+  name: {{ template "erpnext.fullname" . }}-apps
+spec:
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: {{ .Values.persistence.apps.size | quote }}
+  storageClassName: {{ required "A valid persistence.apps.storageClass entry required!" .Values.persistence.apps.storageClass }}
+{{- end }}
