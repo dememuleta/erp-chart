@@ -52,6 +52,8 @@ nginx:
 
 worker:
   gunicorn:
+    initFrappe:
+      branch: "version-15"
     replicaCount: 1
     autoscaling:
       enabled: false
@@ -77,7 +79,11 @@ worker:
     tolerations: []
     affinity: {}
     args: []
-    envVars: []
+    envVars:
+      - name: PYTHONPATH
+        value: /home/frappe/frappe-bench/apps
+      - name: FRAPPE_APP_PATH
+        value: /home/frappe/frappe-bench/apps/frappe
     initContainers: []
     sidecars: []
 
@@ -230,18 +236,18 @@ persistence:
     enabled: true
     # existingClaim: ""
     size: 8Gi
-    # storageClass: "nfs"
+    storageClass: "longhorn"
   apps:
     enabled: true
     # existingClaim: ""
     size: 8Gi
-    # storageClass: "nfs"
+    storageClass: "longhorn"
   logs:
     # Container based log search and analytics stack recommended
     enabled: false
     # existingClaim: ""
     size: 8Gi
-    # storageClass: "nfs"
+    storageClass: "longhorn"
 
 # Ingress
 ingress:
