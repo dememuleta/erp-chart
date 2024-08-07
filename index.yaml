@@ -3,7 +3,7 @@ entries:
   erpnext:
   - apiVersion: v2
     appVersion: v15.31.3
-    created: "2024-08-01T10:08:42.4300092+03:00"
+    created: "2024-08-07T11:05:27.5271613+03:00"
     dependencies:
     - alias: redis-cache
       condition: redis-cache.enabled
@@ -24,11 +24,11 @@ entries:
       repository: https://charts.bitnami.com/bitnami
       version: 12.1.6
     description: Kubernetes Helm Chart for the latest stable ERPNext branch
-    digest: e7d77b96a7067c5fa89fcdc66af7eec1cf420b8f875fcde76e0be765c8535198
+    digest: 0c294673732ff7b555043a28774a0fecf216f532b11d6abd14c3b2235a176e7a
     icon: https://fineto.fi/wp-content/uploads/2024/03/logo-noboarder-240x240tr.png
     name: erpnext
     type: application
     urls:
     - https://dememuleta.github.io/erp-chart/erpnext-7.0.98.tgz
     version: 7.0.98
-generated: "2024-08-01T10:08:42.4063083+03:00"
+generated: "2024-08-07T11:05:27.5009983+03:00"
